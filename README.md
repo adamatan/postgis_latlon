@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/adamatan/postgis_latlon.svg?branch=master)](https://travis-ci.org/adamatan/postgis_latlon)
+
 # Installation
 
     # psql <connection_params> -f create_functions.sql     # Install or upgrade
