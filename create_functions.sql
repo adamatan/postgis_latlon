@@ -1,8 +1,11 @@
-DROP FUNCTION IF EXISTS latlon_google(geometry);
-DROP FUNCTION IF EXISTS latlon_bing(geometry);
+DROP FUNCTION IF EXISTS latlon(geometry);
 DROP FUNCTION IF EXISTS latlon_parens(geometry);
 DROP FUNCTION IF EXISTS latlon_tab(geometry);
-DROP FUNCTION IF EXISTS latlon(geometry);
+
+DROP FUNCTION IF EXISTS latlon_google(geometry);
+DROP FUNCTION IF EXISTS latlon_osm(geometry);
+DROP FUNCTION IF EXISTS latlon_bing(geometry);
+
 
 -- Comma-separated lat-lon: 48.8583500, 2.2946090
 CREATE OR REPLACE FUNCTION latlon(geom geometry)
@@ -55,7 +58,22 @@ BEGIN
                   to_char(st_x(st_centroid(geom)), 'FM9999.0000000'),
                   '&z=17'
                 );
+END;
+$$ LANGUAGE plpgsql;
 
+-- Open Street Map link
+CREATE OR REPLACE FUNCTION latlon_osm(geom geometry)
+RETURNS text AS $$
+BEGIN
+    RETURN CONCAT('https://www.openstreetmap.org/?mlat=',
+                  to_char(st_y(st_centroid(geom)), 'FM9999.0000000'),
+                  '&mlon=',
+                  to_char(st_x(st_centroid(geom)), 'FM9999.0000000'),
+                  '#map=18/',
+                  to_char(st_y(st_centroid(geom)), 'FM9999.0000000'),
+                  '/',
+                  to_char(st_x(st_centroid(geom)), 'FM9999.0000000')
+                );
 END;
 $$ LANGUAGE plpgsql;
 
