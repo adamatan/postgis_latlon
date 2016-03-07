@@ -9,4 +9,4 @@ before_script:
 
 script:
   - psql -U postgres -f create_functions.sql
-  - psql -U postgres -f example.sql
+  - psql --expanded -U postgres -f example.sql
