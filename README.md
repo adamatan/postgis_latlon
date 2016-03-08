@@ -7,14 +7,14 @@
 
 Should give:
 
-  -[ RECORD 1 ]---+---------------------------------------------------------------------------------------------------------
-  latlon          | 48.8583500, 2.2946090
-  latlon_parens   | (48.8583500, 2.2946090)
-  latlon_tab      | 48.8583500      2.2946090
-  latlon_google   | https://maps.google.com/maps?q=48.8583500,2.2946090&ll=48.8583500,2.2946090&z=17
-  latlon_osm      | https://www.openstreetmap.org/?mlat=48.8583500&mlon=2.2946090#map=18/48.8583500/2.2946090
-  latlon_bing     | https://www.bing.com/maps/?v=2&cp=48.8583500~2.2946090&lvl=18&style=r&sp=point.48.8583500_2.2946090_geom
-  latlon_is_valid | t
+    -[ RECORD 1 ]---+---------------------------------------------------------------------------------------------------------
+    latlon          | 48.8583500, 2.2946090
+    latlon_parens   | (48.8583500, 2.2946090)
+    latlon_tab      | 48.8583500      2.2946090
+    latlon_google   | https://maps.google.com/maps?q=48.8583500,2.2946090&ll=48.8583500,2.2946090&z=17
+    latlon_osm      | https://www.openstreetmap.org/?mlat=48.8583500&mlon=2.2946090#map=18/48.8583500/2.2946090
+    latlon_bing     | https://www.bing.com/maps/?v=2&cp=48.8583500~2.2946090&lvl=18&style=r&sp=point.48.8583500_2.2946090_geom
+    latlon_is_valid | t
 
 # Usage
 
