@@ -1,3 +1,14 @@
+-- Tests for the functions in postgis_latlon.
+--
+-- Prerequisites:
+--    Install postgis_latlon (see README.md)
+--
+-- Testing:
+--    psql --tuples-only --expanded -U postgres -f test/test.sql | tee test/actual_output.txt
+--    diff test/expected_output.txt test/actual_output.txt
+--
+--    diff result should be completely identical (exit code 0, no output).
+
 SELECT 'Sanity - All function work.' AS TEST;
 SELECT latlon(geom),
        latlon_parens(geom),
