@@ -6,6 +6,7 @@ DROP FUNCTION IF EXISTS latlon_google(geometry);
 DROP FUNCTION IF EXISTS latlon_osm(geometry);
 DROP FUNCTION IF EXISTS latlon_bing(geometry);
 
+DROP FUNCTION IF EXISTS latlon_is_valid(geometry);
 
 -- Comma-separated lat-lon: 48.8583500, 2.2946090
 CREATE OR REPLACE FUNCTION latlon(geom geometry)
@@ -91,5 +92,19 @@ BEGIN
                   to_char(st_x(st_centroid(geom)), 'FM9999.0000000'),
                   '_geom'
                 );
+END;
+$$ LANGUAGE plpgsql;
+
+
+-- Validity check - lat shouldbe between -90 and 90, lon between -180 and 180
+CREATE OR REPLACE FUNCTION latlon_is_valid(geom_in geometry)
+RETURNS text AS $$
+BEGIN
+    RETURN bool_and(valid_lat_lon)
+           FROM (
+             SELECT
+                  (st_x(geom) BETWEEN -180 AND 180) AND
+                  (st_y(geom) BETWEEN -90 AND 90) AS valid_lat_lon
+             FROM st_DumpPoints(geom_in)) as sq;
 END;
 $$ LANGUAGE plpgsql;

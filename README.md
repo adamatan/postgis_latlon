@@ -29,7 +29,7 @@ taken from the `st_centroid` of the geometry.
 
 # Testing
 
-The output of `psql -f example.sql` should be identical to the content of `test/expected_output.txt`.
+The output of `psql -f test.sql` should be identical to the content of `test/expected_output.txt`.
 
 # Contributing
 
