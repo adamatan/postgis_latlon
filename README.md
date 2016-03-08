@@ -2,8 +2,8 @@
 
 # Installation
 
-    # psql <connection_params> -f create_functions.sql     # Install or upgrade
-    # psql <connection_params> -f example.sql              # Test with a sample geometry
+    # psql -f create_functions.sql     # Install or upgrade
+    # psql -f example.sql              # Test with a sample geometry
 
 Should give:
 
@@ -26,3 +26,12 @@ taken from the `st_centroid` of the geometry.
     latlon_google(geom)
     latlon_osm(geom)
     latlon_bing(geom)
+
+# Testing
+
+The output of `psql -f example.sql` should be identical to the content of `test/expected_output.txt`.
+
+# Contributing
+
+**Yes, Please!** Give me your tired, your poor, your time-saving PostGIS functions! Create a pull request
+or [email me](adam@matan.name).
