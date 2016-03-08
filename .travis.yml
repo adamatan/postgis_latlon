@@ -9,5 +9,5 @@ before_script:
 
 script:
   - psql -U postgres -f create_functions.sql
-  - psql --tuples-only --expanded -U postgres -f example.sql | tee actual_output.txt
-  - diff test/expected_output.txt actual_output.txt
+  - psql --tuples-only --expanded -U postgres -f test/test.sql | tee test/actual_output.txt
+  - diff test/expected_output.txt test/actual_output.txt
