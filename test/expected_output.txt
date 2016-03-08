@@ -1,4 +1,5 @@
--[ RECORD 1 ]---+---------------------------------------------------------------------------------------------------------
+test | Sanity - All function work.
+
 latlon          | 48.8583500, 2.2946090
 latlon_parens   | (48.8583500, 2.2946090)
 latlon_tab      | 48.8583500      2.2946090
@@ -7,24 +8,27 @@ latlon_osm      | https://www.openstreetmap.org/?mlat=48.8583500&mlon=2.2946090#
 latlon_bing     | https://www.bing.com/maps/?v=2&cp=48.8583500~2.2946090&lvl=18&style=r&sp=point.48.8583500_2.2946090_geom
 latlon_is_valid | t
 
--[ RECORD 1 ]--+--
+test | latlon_is_valid - valid polygon.
+
 should_be_true | t
 
--[ RECORD 1 ]---+--
+test | latlon_is_valid - invalid polygons.
+
 should_be_false | f
 
--[ RECORD 1 ]---+--
 should_be_false | f
 
--[ RECORD 1 ]---+--
 should_be_false | f
 
--[ RECORD 1 ]---+--
+test | latlon_is_valid - valid point.
+
+should_be_false | t
+
+test | latlon_is_valid - invalid points.
+
 should_be_false | f
 
--[ RECORD 1 ]---+--
 should_be_false | f
 
--[ RECORD 1 ]---+--
 should_be_false | f
 
